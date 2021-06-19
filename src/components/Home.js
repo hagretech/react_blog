@@ -10,12 +10,17 @@ const Home = () =>{
         {title: 'alburt code', body:'are machines are reallyin going to take our jobs or its a fake so p', id:3},
         {title: 'ai', body:'are machines are reallyin going to take our jobs or its a fake so p', id:4}
     ]);
+    const HandeleDelete = (id) => {
+        const newBlog = blogs.filter(blog => blog.id !== id);
+        console.log(newBlog)
+        setBlogs(newBlog);
+    }
     return (
         <div className="home">
             <h1>home</h1>
-            <BlogList blogs={blogs} title='allblogs '/>
+            <BlogList title='allblogs' blogs={blogs} HandeleDelete={HandeleDelete}/>
             second blog
-            <BlogList blogs={blogs.filter((blog) => blog.id == 2)} title='blog 2 '/>
+            <BlogList title='second blog' blogs={blogs} HandeleDelete={HandeleDelete}/>
         </div>
         
     )
